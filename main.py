@@ -13,7 +13,7 @@ def start(url):
         for each_word in words:
             print(each_word)
             word_list.append(each_word)
-            
+     clean_up_list(word_list)       
             
  def clean_up_list(word_list):
     clean_word_list = []
@@ -24,7 +24,23 @@ def start(url):
             word = word.replace(symbols[i],"")
         if len(word)>0:
             clean_word_list[word]
-
+    create_dictionary(clean_word_list)
            
 
-start('give the url here')
+def create_dictionary(clean_word_list):
+    word_count = {}
+
+    for word in clean_word_list:
+        if word in word_count:
+            word_count[word]+=1
+        else:
+            word_count[word]=1
+
+    for key,value in sorted(word_count.items(),key=operator.itemgetter(1))
+        print(key,value)
+
+
+
+start('put your url here')
+
+
